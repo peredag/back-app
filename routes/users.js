@@ -3,7 +3,15 @@ let router = express.Router()
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('ruta usuarios :D!');
 });
+
+/* 
+crear ruta post, (endpoint + funcion async)
+.
+.
+.
+.
+*/
 
 export default router
