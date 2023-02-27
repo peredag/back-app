@@ -3,29 +3,25 @@ import User from '../models/User.js'
 let router = express.Router()
 
 /* GET users listing. */
-/* router.get('/', function(req, res, next) {
-  res.send('ruta usuarios :D!');
-}); */
 router.get(
-  '/', /* endpoint a concatenar con el endpoint del enrrutador principal */
-  (req,res) => { /* funcion que se va a ejecutar cada vez que se llame al endpoint */
+  '/',
+  (req,res) => { 
       //console.log(req)
       return res
-          .status(200) /* 200: exito para la lectura */
-          .send('aca vemos los usuarios') /* send envía mensajes al cliente */
+          .status(200) 
+          .send('aca vemos los usuarios') 
   }
 )
-
-/* 
-crear ruta post, (endpoint + funcion async)
-*/
+/* crear ruta post, (endpoint + funcion async)*/
 router.post('/', async (req,res) => { 
   try{ 
     let user = await User.create(req.body) 
-    return res.status(201).json({ 
+    return res.status(201)
+              // .send("BRAVO SE CREO CORRECTAMENTE")
+               .json({ 
       success: true, 
       user: user, 
-      id: user._id 
+      id: user._id
     })
   } catch(error){ 
     console.log(error) 
